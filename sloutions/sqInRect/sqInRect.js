@@ -1,5 +1,5 @@
 /**
- *
+ *  sqInRect   矩形切割成为多个正方形 给出边长组合
  * @param lng
  * @param wdth
  *
