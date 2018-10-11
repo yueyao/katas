@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../set.js"></script>
+</head>
+<body>
+     <h4>SET </h4>
+     <script>
+            //集合测试
+            var names = new Set();
+            names.add("David");
+            names.add("Jennifer");
+            names.add("Cynthia");
+            names.add("Mike");
+            names.add("Raymond");
+            //show 测试
+            names.show();
+            //remove测试
+            names.remove("David")
+            names.show()
+
+            //union 合并集合 测试
+            var cis = new Set();
+            cis.add("Mike");
+            cis.add("Clayton");
+            cis.add("Jennifer");
+            cis.add("Raymond");
+            var dmp = new Set();
+            dmp.add("Raymond");
+            dmp.add("Cynthia");
+            dmp.add("Jonathan");
+
+            var it = cis.union(dmp);
+            it.show()
+
+            //交集测试
+            var inter = cis.intersect(dmp)
+            inter.show();
+
+            //判断是否子集
+            var it2 = new Set();
+            it2.add("Cynthia");
+            it2.add("Clayton");
+            it2.add("Jennifer");
+            it2.add("Danny");
+            it2.add("Jonathan");
+            it2.add("Terrill");
+            it2.add("Raymond");
+            it2.add("Mike");
+            var dmp2 = new Set();
+            dmp2.add("Cynthia");
+            dmp2.add("Raymond");
+            dmp2.add("Jonathan");
+            console.log("dmp2 是否是it2 子集："+dmp2.subset(it2))
+
+            //找不同
+
+            var d = it2.difference(dmp2)
+            d.show();
+     </script>
+</body>
+</html>

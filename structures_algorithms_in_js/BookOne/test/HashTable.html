@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../HashTable.js"></script>
+</head>
+<body>
+<h3>HashTable</h3>
+<script>
+
+    //版本一测试
+    var someNames = [
+        "David",
+        "Jennifer",
+        "Donnie",
+        "Raymond",
+        "Cynthia",
+        "Mike",
+        "Clayton",
+        "Danny",
+        "Jonathan"
+    ];
+    var hTable = new HashTable();
+    for (var i = 0; i < someNames.length; ++i) {
+        hTable.put(someNames[i]);
+    }
+    hTable.showPutLength();
+    hTable.showDistro();
+    //测试版本二
+    var someNames2 = [
+        "David",
+        "Jennifer",
+        "Donnie",
+        "Raymond",
+        "Cynthia",
+        "Mike",
+        "Clayton",
+        "Danny",
+        "Jonathan"
+    ];
+    var hTable2 = new HashTable2();
+    for (var j = 0; j < someNames2.length; ++j) {
+        hTable2.put(someNames2[j]);
+    }
+    hTable2.showPutLength();
+    hTable2.showDistro();
+
+    // 测试整形类型
+
+    function getRandomInt (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    function genStuData(arr) {
+        for (var i = 0; i < arr.length; ++i) {
+            var num = "";
+            for (var j = 1; j <= 9; ++j) {
+                num += Math.floor(Math.random() * 10);
+            }
+            num += getRandomInt(50,100);
+            arr[i] = num;
+        }
+    }
+    var numStudents = 10;
+    var arrSize = 97;
+    var idLen = 9;
+    var students = new Array(numStudents);
+    genStuData(students);
+    var hTable3 = new HashTable2();
+    for (var i = 0; i < students.length; ++i) {
+        hTable3.put(students[i]);
+    }
+    hTable3.showPutLength();
+    hTable3.showDistro();
+
+    //测试开链法
+
+    var hTable4 = new HashTable4();
+    hTable4.buildChains();
+    var someNames4 = ["David", "Jennifer", "Donnie", "Raymond",
+        "Cynthia", "Mike", "Clayton", "Danny", "Jonathan"];
+    someNames4= someNames4.concat(["f", "Jennifers", "Donnies", "Raymonds",
+        "Cynthias", "Mikes", "Claytons", "Dannys", "Jonathans"])
+    for (var i = 0; i < someNames4.length; ++i) {
+        hTable4.put(someNames4[i]);
+    }
+    hTable4.showPutLength();
+    hTable4.showDistro();
+
+    console.log(hTable4.get('f'))
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../queue.js"></script>
+</head>
+<body>
+
+    <h4>queue</h4>
+
+    <script>
+
+        /*var str =  "F Allison McMillan"+"        M Frank Opitz"+"        M Mason McMillan"+"        M Clayton Ruff"+"        F Cheryl Ferenback"+"        M Raymond Williams"+"        F Jennifer Ingram"+"        M Bryan Frazer"+"        M David Durr"+"        M Danny Martin"+"        F Aurora Adney";
+        var a = str.split(' ');
+        var sa = [ ], na = [],na2 = [];
+        for(var i=0;i< a.length;i++){
+            if(a[i]!==''){
+               if(a[i]=='F'||a[i]=='M'){
+                   sa.push(a[i])
+               }else {
+                   na.push(a[i])
+               }
+            }
+        }
+        for(var j=0;j<na.length;j++){
+            na2.push(na[j]+" "+na[j+1])
+            j++;
+        }
+        console.log(sa.length)
+        console.log(na2.length)
+         var u =[]
+        for(var k=0;k<sa.length;k++){
+            u.push({
+                sex:sa[k],
+                name:na2[k]
+            })
+        }
+        console.log(JSON.stringify(u));*/
+        //假设源文件
+        var file = [
+            {"sex":"F","name":"Allison McMillan"},
+            {"sex":"M","name":"Frank Opitz"},
+            {"sex":"M","name":"Mason McMillan"},
+            {"sex":"M","name":"Clayton Ruff"},
+            {"sex":"F","name":"Cheryl Ferenback"},
+            {"sex":"M","name":"Raymond Williams"},
+            {"sex":"F","name":"Jennifer Ingram"},
+            {"sex":"M","name":"Bryan Frazer"},
+            {"sex":"M","name":"David Durr"},
+            {"sex":"M","name":"Danny Martin"},
+            {"sex":"F","name":"Aurora Adney"}
+        ];
+        //跳舞程序开始
+        function Dancer(name, sex) {
+            this.name = name;
+            this.sex = sex;
+        }
+
+        var females = new Queue();
+        var males = new Queue();
+        //男女 分配队列
+        for(var i=0;i<file.length;i++){
+            var sex = file[i].sex;
+            var name = file[i].name;
+            if(sex=='M'){
+                males.enqueue(new Dancer(name,sex))
+            }else {
+                females.enqueue(new Dancer(name,sex))
+            }
+        }
+        //开始男女配对跳舞
+        function dancer(q1,q2){
+            var person1,person2;
+            while (!q1.empty() && !q2.empty()) {
+                person1 = q1.dequeue();
+                console.log("Female dancer is: " + person1.name);
+                person2 = q2.dequeue();
+                console.log(" and the male dancer is: " + person2.name);
+            }
+            //查看队列里面还有多少人在等待配对
+            dancerWait(q1,q2)
+        }
+        function dancerWait(q1,q2){
+            console.log("-----------------")
+            if(q1.count()>0){
+                console.log(q1.count()+" Female  is wait")
+                console.log(q1.dequeue().name+" is wait")
+            }
+            if(q2.count()>0){
+                console.log(q2.count()+" male is wait")
+                console.log(q2.dequeue().name+" is wait")
+            }
+        }
+
+
+
+        dancer(females,males)
+
+    </script>
+</body>
+</html>

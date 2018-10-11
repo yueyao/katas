@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../BST.js"></script>
+    <style>
+        #bst{
+            margin:0;
+            padding:0;
+            text-align: center;
+
+            border:1px solid #dddddd;
+            border-right:none;
+            border-bottom:none;
+        }
+        .bst-layer{
+            text-align: center;
+            width:100%;
+            display: -webkit-box;
+            height:20px;
+        }
+        .bst-block{
+            -webkit-box-flex: 1;
+            font-size:12px;
+            border:1px solid #dddddd;
+            border-width:0px 1px 1px 0px;
+            box-sizing: border-box;
+            line-height:20px;;
+        }
+    </style>
+</head>
+<body>
+      <h4>BST TreeView</h4>
+      <script>
+          //准备一组数据 随机
+          var narr = function(){
+              var arr= [];
+              var len = 100;
+              for(var i=1;i<len;i++){
+                  arr.push(i)
+              }
+              arr.sort(function(){
+                  return Math.random()-0.5>0;
+              })
+              return arr;
+          }();
+          var atest = [23,45,16,37,3,99,22]
+          //随机插入n个值
+          var nums = new BST();
+          var nlen = Math.floor(Math.random()*100)
+          for(var i=0;i<nlen;i++){
+              nums.insert(narr.pop())
+          }
+          //nums.insert(201)
+
+          console.log('中序：')
+          nums.inOrder(nums.root);
+
+          console.log("先序：")
+          nums.preOrder(nums.root);
+
+          console.log("后序：")
+          nums.postOrder(nums.root);
+
+          console.log('最小值：%o',nums.getMin())
+          console.log('最大值：%o',nums.getMax())
+          console.log('查找值：%o',nums.find(201))
+
+          BSTTreeView(nums);
+
+
+      </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../seqSearch.js"></script>
+</head>
+<body>
+<h4>seqSearc</h4>
+<script>
+    //生成数据的方法
+    function createArr(){
+        var nums = [];
+        for (var i = 0; i < 100; ++i) {
+            nums[i] = Math.floor(Math.random() * 101);
+        }
+        return nums;
+    }
+    var nums = createArr();
+    console.log(nums)
+    console.log(findMin(nums))
+
+     //二分查找需要数据排序
+    nums.sort(function(n1,n2){
+        return n1-n2;
+    })
+    var n=46
+    console.log("二分："+ binCount(nums,46)+"个数据被找到")
+
+
+    var words="The nationalism of Hamilton was undemocratic.\n" +
+            " The democracy of Jefferson was, in the beginning," +
+            " provincial. The historic mission of uniting nationalism and democracy " +
+            "was in the course of time given to new leaders from a region beyond the mountains," +
+            " peopled by men and women from all sections and free from those state traditions " +
+            "which ran back to the early days of colonization. The voice of the democratic " +
+            "nationalism nourished in the West was heard when Clay of Kentucky advocated his" +
+            " American system of protection for industries; when Jackson of Tennessee" +
+            " condemned nullification in a ringing proclamation that has taken its place among " +
+            "the great American state papers; and when Lincoln of Illinois, in a fateful hour," +
+            " called upon a bewildered people to meet the supreme test whether this was a " +
+            "nation destined to survive or to perish. And it will be remembered that " +
+            "Lincoln's party chose for its banner that earlier device--Republican--which " +
+            "Jefferson had made a sign of power. The \"rail splitter\" from Illinois united the " +
+            "nationalism of Hamilton with the democracy of Jefferson, and his appeal was " +
+            "clothed in the simple language of the people, not in the sonorous rhetoricwhich " +
+            "Webster learned in the schools." ;
+
+    var wordsArr = (words.split(" ")) ;
+    insertionsort(wordsArr)
+    var findword = "rhetoric";
+    function insertionsort(arr) {
+        var temp, inner;
+        for (var outer = 1; outer <= arr.length-1; ++outer) {
+            temp = arr[outer];
+            inner = outer;
+            while (inner > 0 && (arr[inner-1] >= temp)) {
+                arr[inner] = arr[inner-1];
+                --inner;
+            }
+            arr[inner] = temp;
+        }
+    }
+   // var position = binSearch(wordsArr, findword);
+   // console.log("单词 " + findword + " 被找的位置在： " + position + "。")
+
+
+</script>
+</body>
+</html>

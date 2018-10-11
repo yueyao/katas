@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../Dictionary.js"></script>
+</head>
+<body>
+<h4>dictionary</h4>
+
+<script>
+
+    var pbook = new Dictionary();
+    pbook.add("Raymond","123");
+    pbook.add("David", "345");
+    pbook.add("Cynthia", "456");
+    pbook.add("Mike", "723");
+    pbook.add("Jennifer", "987");
+    pbook.add("Danny", "012");
+    pbook.add("Jonathan", "666");
+    pbook.add("Accccc", "666");
+    pbook.showAll();
+    console.log(pbook.find('Accccc'))
+    console.log(pbook.count())
+    //提取字符出现次数
+    var s = "the brown fox jumped over the blue fox";
+
+    var stotal = new Dictionary();
+    var sarr = s.split(' ');
+    for(var i = 0,n= sarr.length;i<n;i++){
+        if(stotal.find(sarr[i])){
+           var v = stotal.find(sarr[i]);
+            stotal.remove(sarr[i])
+            stotal.add(sarr[i],v+1)
+        }else{
+            stotal.add(sarr[i],1)
+        }
+    }
+    stotal.showAll();
+</script>
+
+
+<script>
+
+    var s1 = $("select1").val();
+    var s2 = $('select2').val();
+
+
+    $('#answer').val(s1+""+s2)
+
+</script>
+</body>
+</html>

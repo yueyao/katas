@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../CArray.js"></script>
+</head>
+<body>
+     <h4>排序算法</h4>
+
+     <script>
+         var n= 10000;
+         var n1=100000;
+         console.time("bubble")
+         //冒泡排序
+         var mynums = new CArray(n);
+         mynums.setData();
+         mynums.bubbleSort();
+         console.timeEnd("bubble")
+         console.time("select")
+         //选择排序
+         var mynums = new CArray(n);
+         mynums.setData();
+         mynums.selectionSort();
+
+         console.timeEnd("select")
+         console.time("insert")
+         //插入排序
+         var mynums = new CArray(n);
+         mynums.setData();
+         mynums.insertionSort();
+
+         console.timeEnd("insert")
+
+         console.time("shell")
+         //希尔排序
+         var mynums = new CArray(n);
+         mynums.setData();
+         mynums.shellsort();
+
+         console.timeEnd("shell")
+         console.time("shell1")
+         //希尔排序
+         var mynums = new CArray(n);
+         mynums.setData();
+         mynums.shellsort();
+
+         console.timeEnd("shell1")
+         console.time("mergeSort")
+         //归并排序
+         var mynums = new CArray(n);
+         mynums.setData();
+         mynums.mergeSort();
+
+         console.timeEnd("mergeSort")
+         console.time("qSort")
+         //快速排序
+         var mynums = new CArray(n);
+         mynums.setData();
+         var list = mynums.getData();
+         mynums.qSort(list);
+
+         console.timeEnd("qSort")
+
+     </script>
+</body>
+</html>
